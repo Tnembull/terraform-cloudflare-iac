@@ -1,0 +1,4 @@
+cloudflare_api_token = "cf_token_placeholder_here"
+cloudflare_zone_id   = "cf_zone_id_placeholder_here"
+vps_ipv4             = "203.0.113.10"
+domain_name          = "muhammadnurashiddiqi.my.id"
