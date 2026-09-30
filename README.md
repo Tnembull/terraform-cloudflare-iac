@@ -47,7 +47,7 @@ Edit `terraform.tfvars`:
 cloudflare_api_token = "YOUR_CLOUDFLARE_API_TOKEN"
 cloudflare_zone_id   = "YOUR_ZONE_ID"
 vps_ipv4             = "203.0.113.10"
-domain_name          = "muhammadnurashiddiqi.my.id"
+domain_name          = "example.com"
 ```
 
 ### 3. Initialize Provider & Modules

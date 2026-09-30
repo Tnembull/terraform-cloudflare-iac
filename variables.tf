@@ -10,13 +10,13 @@ variable "cloudflare_zone_id" {
 }
 
 variable "vps_ipv4" {
-  description = "Primary IPv4 address of the Tencent Cloud VPS"
+  description = "Primary IPv4 address of the target VPS"
   type        = string
-  default     = "203.0.113.10"
+  default     = "192.0.2.1"
 }
 
 variable "domain_name" {
   description = "Apex domain name managed by this Terraform module"
   type        = string
-  default     = "muhammadnurashiddiqi.my.id"
+  default     = "example.com"
 }
