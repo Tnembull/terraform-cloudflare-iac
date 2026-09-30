@@ -1,0 +1,40 @@
+name: "Terraform IaC Quality & Lint Pipeline"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  terraform-ci:
+    name: "Lint, Validate & Security Scan"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout Source Code"
+        uses: actions/checkout@v4
+
+      - name: "Setup HashiCorp Terraform"
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.0"
+
+      - name: "Terraform Format Check (fmt)"
+        run: terraform fmt -check
+
+      - name: "Terraform Init (Dry-Run Backend)"
+        run: terraform init -backend=false
+
+      - name: "Terraform Syntax Validation"
+        run: terraform validate
+
+      - name: "TFLint Static Analysis"
+        uses: terraform-linters/setup-tflint@v4
+        with:
+          tflint_version: latest
+
+      - name: "Run TFLint"
+        run: |
+          tflint --init
+          tflint -f compact
